@@ -41,7 +41,7 @@ object Form1: TForm1
   end
   object labDepositado: TLabel
     Left = 536
-    Top = 24
+    Top = 16
     Width = 154
     Height = 19
     Caption = 'Depositado no Mes'
@@ -54,7 +54,7 @@ object Form1: TForm1
   end
   object labRendimentodoMes: TLabel
     Left = 536
-    Top = 105
+    Top = 97
     Width = 161
     Height = 19
     Caption = 'Rendimento do Mes'
@@ -67,9 +67,9 @@ object Form1: TForm1
   end
   object edtTotalEmMeses: TLabel
     Left = 536
-    Top = 169
+    Top = 151
     Width = 154
-    Height = 19
+    Height = 21
     Caption = 'Total em 12 meses'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -103,7 +103,6 @@ object Form1: TForm1
     Height = 21
     TabOrder = 1
     Text = 'Escolha o mes'
-    OnChange = cmbEscolhaMesChange
     Items.Strings = (
       'Janeiro'
       'Fevereiro'
@@ -120,7 +119,7 @@ object Form1: TForm1
   end
   object edtDepositado: TEdit
     Left = 552
-    Top = 71
+    Top = 68
     Width = 121
     Height = 21
     Enabled = False
@@ -129,7 +128,7 @@ object Form1: TForm1
   end
   object edtRendimentoMes: TEdit
     Left = 552
-    Top = 130
+    Top = 122
     Width = 121
     Height = 21
     Enabled = False
@@ -138,30 +137,29 @@ object Form1: TForm1
   end
   object edtRendimentoTotal: TEdit
     Left = 552
-    Top = 194
+    Top = 176
     Width = 121
-    Height = 21
+    Height = 23
     Enabled = False
     TabOrder = 4
     Text = '...'
   end
-  object Button1: TButton
+  object btnDepositar: TButton
     Left = 204
     Top = 208
     Width = 75
     Height = 25
-    Caption = 'Button1'
+    Caption = 'Depositar'
     TabOrder = 5
-    OnClick = Button1Click
+    OnClick = btnDepositarClick
   end
   object cmbDepositado: TComboBox
     Left = 545
-    Top = 44
+    Top = 41
     Width = 145
     Height = 21
     TabOrder = 6
     Text = 'Escolha o mes'
-    OnChange = cmbDepositadoChange
     Items.Strings = (
       'Janeiro'
       'Fevereiro'
@@ -175,5 +173,14 @@ object Form1: TForm1
       'Outubro'
       'Novembro'
       'Dezembro')
+  end
+  object btnConsultar: TButton
+    Left = 580
+    Top = 208
+    Width = 75
+    Height = 25
+    Caption = 'btnConsultar'
+    TabOrder = 7
+    OnClick = btnDepositarClick
   end
 end

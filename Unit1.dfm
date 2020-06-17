@@ -54,7 +54,7 @@ object Form1: TForm1
   end
   object labRendimentodoMes: TLabel
     Left = 536
-    Top = 98
+    Top = 105
     Width = 161
     Height = 19
     Caption = 'Rendimento do Mes'
@@ -67,7 +67,7 @@ object Form1: TForm1
   end
   object edtTotalEmMeses: TLabel
     Left = 536
-    Top = 162
+    Top = 169
     Width = 154
     Height = 19
     Caption = 'Total em 12 meses'
@@ -89,6 +89,7 @@ object Form1: TForm1
     Font.Height = -21
     Font.Name = 'Tahoma'
     Font.Style = []
+    NumbersOnly = True
     ParentFont = False
     TabOrder = 0
     Text = 'Valor de Deposito'
@@ -101,6 +102,7 @@ object Form1: TForm1
     Height = 21
     TabOrder = 1
     Text = 'Escolha o mes'
+    OnChange = cmbEscolhaMesChange
     Items.Strings = (
       'Janeiro'
       'Fevereiro'
@@ -117,9 +119,10 @@ object Form1: TForm1
   end
   object edtDepositado: TEdit
     Left = 552
-    Top = 56
+    Top = 71
     Width = 121
     Height = 21
+    Enabled = False
     TabOrder = 2
     Text = '...'
   end
@@ -128,6 +131,7 @@ object Form1: TForm1
     Top = 130
     Width = 121
     Height = 21
+    Enabled = False
     TabOrder = 3
     Text = '...'
   end
@@ -136,6 +140,7 @@ object Form1: TForm1
     Top = 194
     Width = 121
     Height = 21
+    Enabled = False
     TabOrder = 4
     Text = '...'
   end
@@ -147,5 +152,27 @@ object Form1: TForm1
     Caption = 'Button1'
     TabOrder = 5
     OnClick = Button1Click
+  end
+  object cmbDepositado: TComboBox
+    Left = 545
+    Top = 44
+    Width = 145
+    Height = 21
+    TabOrder = 6
+    Text = 'Escolha o mes'
+    OnChange = cmbDepositadoChange
+    Items.Strings = (
+      'Janeiro'
+      'Fevereiro'
+      'Marco'
+      'Abril'
+      'Maio'
+      'Junho'
+      'Julho'
+      'Agosto'
+      'Setembro'
+      'Outubro'
+      'Novembro'
+      'Dezembro')
   end
 end

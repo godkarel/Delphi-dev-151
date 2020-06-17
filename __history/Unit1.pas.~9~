@@ -67,100 +67,15 @@ implementation
 
 procedure TForm1.btnDepositarClick(Sender: TObject);
 begin
-  if cmbEscolhaMes.text = 'Escolha o mes' then
+  if cmbDepositado.text = 'Escolha o mes' then
   begin
      ShowMessage('Escolha um mes para saber sobre os rendimentos');
   end else
-  if cmbEscolhaMes.text = 'Janeiro' then
+  if cmbDepositado.text = 'Janeiro' then
   begin
      Janeiro := StrToInt(edtInsertValue.text);
      edtInsertValue.text := '';
      ShowMessage('Valor Depositado');
-  end else
-  if cmbEscolhaMes.text = 'Fevereiro' then
-  begin
-     Fevereiro := StrToInt(edtInsertValue.text);
-     edtInsertValue.text := '';
-     ShowMessage('Valor Depositado');
-  end else
-  if cmbEscolhaMes.text = 'Marco' then
-  begin
-     Marco := StrToInt(edtInsertValue.text);
-     edtInsertValue.text := '';
-     ShowMessage('Valor Depositado');
-  end else
-  if cmbEscolhaMes.text = 'Abril' then
-  begin
-     Abril := StrToInt(edtInsertValue.text);
-     edtInsertValue.text := '';
-     ShowMessage('Valor Depositado');
-  end else
-  if cmbEscolhaMes.text = 'Maio' then
-  begin
-     Maio := StrToInt(edtInsertValue.text);
-     edtInsertValue.text := '';
-     ShowMessage('Valor Depositado');
-  end else
-  if cmbEscolhaMes.text = 'Junho' then
-  begin
-     Junho := StrToInt(edtInsertValue.text);
-     edtInsertValue.text := '';
-     ShowMessage('Valor Depositado');
-  end else
-  if cmbEscolhaMes.text = 'Julho' then
-  begin
-     Julho := StrToInt(edtInsertValue.text);
-     edtInsertValue.text := '';
-     ShowMessage('Valor Depositado');
-  end else
-  if cmbEscolhaMes.text = 'Agosto' then
-  begin
-     Agosto := StrToInt(edtInsertValue.text);
-     edtInsertValue.text := '';
-     ShowMessage('Valor Depositado');
-  end else
-  if cmbEscolhaMes.text = 'Setembro' then
-  begin
-     Setembro := StrToInt(edtInsertValue.text);
-     edtInsertValue.text := '';
-     ShowMessage('Valor Depositado');
-  end else
-  if cmbEscolhaMes.text = 'Outubro' then
-  begin
-     Outubro := StrToInt(edtInsertValue.text);
-     edtInsertValue.text := '';
-     ShowMessage('Valor Depositado');
-  end else
-  if cmbEscolhaMes.text = 'Novembro' then
-  begin
-     Novembro := StrToInt(edtInsertValue.text);
-     edtInsertValue.text := '';
-    ShowMessage('Valor Depositado');
-  end else
-  if cmbEscolhaMes.text = 'Dezembro' then
-  begin
-     Dezembro := StrToInt(edtInsertValue.text);
-     edtInsertValue.text := '';
-     ShowMessage('Valor Depositado');
-  end else
-end;
-
-procedure TForm1.cmbEscolhaMesChange(Sender: TObject);
-begin
-  edtInsertValue.visible := true
-end;
-
-procedure TForm1.btnConsultarClick(Sender: TObject);
-begin
-    if cmbDepositado.text = 'Janeiro' then
-  begin
-     JaneiroRendeu := Janeiro * 0.0862;
-     TotalRendeu := JaneiroRendeu + FevereiroRendeu + MarcoRendeu + AbrilRendeu + MaioRendeu + JunhoRendeu + JulhoRendeu + AgostoRendeu + SetembroRendeu + OutubroRendeu + NovembroRendeu + DezembroRendeu;
-     TotalDepositado := Janeiro + Fevereiro + Marco + Abril + Maio + Junho + Julho + Agosto + Setembro + Outubro + Novembro + Dezembro;
-     TotalDeTudo := TotalDepositado + TotalRendeu;
-     edtDepositado.Text := floattostr(Janeiro);
-     edtRendimentoMes.Text := floattostr(JaneiroRendeu);
-     edtRendimentoTotal.Text := floattostr(TotalDeTudo);
   end else
   if cmbDepositado.text = 'Fevereiro' then
   begin
@@ -228,7 +143,11 @@ begin
      edtInsertValue.text := '';
      ShowMessage('Valor Depositado');
   end else
+end;
 
+procedure TForm1.cmbEscolhaMesChange(Sender: TObject);
+begin
+  edtInsertValue.visible := true
 end;
 
 end.

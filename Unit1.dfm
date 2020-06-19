@@ -69,7 +69,7 @@ object Form1: TForm1
     Left = 536
     Top = 151
     Width = 154
-    Height = 21
+    Height = 19
     Caption = 'Total em 12 meses'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -139,7 +139,7 @@ object Form1: TForm1
     Left = 552
     Top = 176
     Width = 121
-    Height = 23
+    Height = 21
     Enabled = False
     TabOrder = 4
     Text = '...'

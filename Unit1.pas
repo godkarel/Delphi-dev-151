@@ -24,6 +24,7 @@ type
     procedure btnDepositarClick(Sender: TObject);
     procedure cmbEscolhaMesChange(Sender: TObject);
     procedure btnConsultarClick(Sender: TObject);
+    function somaTudo: EXTENDED ;
   private
     { Private declarations }
   public
@@ -63,7 +64,6 @@ var
 implementation
 
 {$R *.dfm}
-
 
 procedure TForm1.btnDepositarClick(Sender: TObject);
 begin
@@ -155,9 +155,7 @@ begin
     if cmbDepositado.text = 'Janeiro' then
   begin
      JaneiroRendeu := Janeiro * 0.0862;
-     TotalRendeu := JaneiroRendeu + FevereiroRendeu + MarcoRendeu + AbrilRendeu + MaioRendeu + JunhoRendeu + JulhoRendeu + AgostoRendeu + SetembroRendeu + OutubroRendeu + NovembroRendeu + DezembroRendeu;
-     TotalDepositado := Janeiro + Fevereiro + Marco + Abril + Maio + Junho + Julho + Agosto + Setembro + Outubro + Novembro + Dezembro;
-     TotalDeTudo := TotalDepositado + TotalRendeu;
+
      edtDepositado.Text := floattostr(Janeiro);
      edtRendimentoMes.Text := floattostr(JaneiroRendeu);
      edtRendimentoTotal.Text := floattostr(TotalDeTudo);
@@ -230,6 +228,15 @@ begin
   end else
 
 end;
+
+function TForm1.somaTudo;
+begin
+    TotalRendeu := JaneiroRendeu + FevereiroRendeu + MarcoRendeu + AbrilRendeu + MaioRendeu + JunhoRendeu + JulhoRendeu + AgostoRendeu + SetembroRendeu + OutubroRendeu + NovembroRendeu + DezembroRendeu;
+    TotalDepositado := Janeiro + Fevereiro + Marco + Abril + Maio + Junho + Julho + Agosto + Setembro + Outubro + Novembro + Dezembro;
+    TotalDeTudo := TotalDepositado + TotalRendeu;
+    result := TotalDeTudo
+end;
+
 
 end.
 

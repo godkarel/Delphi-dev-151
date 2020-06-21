@@ -264,16 +264,7 @@ function TForm1.somaDepositadoRendimento;
 begin
    JaneiroLucro := Janeiro + JaneiroRendeu;
    FevereiroLucro := Fevereiro + FevereiroRendeu;
-   MarcoLucro := Marco + MarcoRendeu;
-   AbrilLucro := Abril + AbrilRendeu;
-   MaioLucro := Maio + MaioRendeu;
-   JunhoLucro := Junho + JunhoRendeu;
-   JulhoLucro := Julho + JulhoRendeu;
-   AgostoLucro := Agosto + AgostoRendeu;
-   SetembroLucro := Setembro + SetembroRendeu;
-   OutubroLucro := Outubro + OutubroRendeu;
-   NovembroLucro := Novembro + NovembroRendeu;
-   DezembroLucro := Dezembro + DezembroRendeu;
+   Marco := Marco + MarcoRendeu;
 
 end;
 

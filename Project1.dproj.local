@@ -2,13 +2,13 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2020/06/16 11:19:42.000.598,=C:\Users\Karel o Deus\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/06/16 11:55:42.000.501,D:\SD\calculadora de juros\Unit1.pas=C:\Users\Karel o Deus\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/06/16 11:55:42.000.501,D:\SD\calculadora de juros\Unit1.dfm=C:\Users\Karel o Deus\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>2020/06/16 11:55:47.000.368,D:\SD\calculadora de juros\Project1.dproj=C:\Users\Karel o Deus\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2020/06/16 11:55:42.000.501,C:\Users\Karel o Deus\Documents\Embarcadero\Studio\Projects\Unit1.dfm=D:\SD\calculadora de juros\Unit1.dfm</Transaction>
+    <Transaction>2020/06/16 11:55:42.000.501,C:\Users\Karel o Deus\Documents\Embarcadero\Studio\Projects\Unit1.pas=D:\SD\calculadora de juros\Unit1.pas</Transaction>
+    <Transaction>2020/06/16 11:55:47.000.368,C:\Users\Karel o Deus\Documents\Embarcadero\Studio\Projects\Project1.dproj=D:\SD\calculadora de juros\Project1.dproj</Transaction>
     <Transaction>2020/06/16 11:58:38.000.518,D:\SD\calculadora de juros\Project1.dproj=D:\SD\calculadora de juros\Project1.dproj</Transaction>
     <Transaction>2020/06/16 12:09:44.000.171,D:\SD\calculadora de juros\Project1.dproj=D:\SD\calculadora de juros\Project1.dproj</Transaction>
     <Transaction>2020/06/16 13:35:04.000.362,D:\SD\calculadora de juros\Project1.dproj=D:\SD\calculadora de juros\Project1.dproj</Transaction>
-    <Transaction>2020/06/19 13:39:23.412,=D:\SD\calculadora de juros\Unit2.pas</Transaction>
-    <Transaction>2020/06/19 13:46:21.106,=D:\SD\calculadora de juros\Unit2.pas</Transaction>
+    <Transaction>2020/06/19 13:39:23.000.412,=D:\SD\calculadora de juros\Unit2.pas</Transaction>
+    <Transaction>2020/06/19 13:46:21.000.106,=D:\SD\calculadora de juros\Unit2.pas</Transaction>
   </Transactions>
 </BorlandProject>

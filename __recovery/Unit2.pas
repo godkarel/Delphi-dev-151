@@ -30,6 +30,7 @@ var
   advRedimentos: Extended;
   advTotalFinal: Extended;
   advExtra: Extended;
+  I : Integer;
 implementation
 
 {$R *.dfm}
@@ -37,7 +38,7 @@ implementation
 procedure TForm2.btnGerarExtratoClick(Sender: TObject);
 begin
     advDepositado := strtofloat(edtAvançadoValorDepositado.text);
-    advRedimentos :=  strtofloat(edtMesesRendimento.text) * 8.62;
+    advRedimentos :=  strtofloat(edtMesesRendimento.text) * 08.62;
     advMeses := strtofloat(edtMesesRendimento.text);
     extrato := (strtofloat(edtAvançadoValorDepositado.text) * strtofloat(edtMesesRendimento.text)) + (advRedimentos * strtofloat(edtMesesRendimento.text)) ;
     advExtra := advRedimentos * advMeses;
@@ -46,8 +47,16 @@ begin
     'O Total depositado foi de ' +FloatToStr(advDepositado)+#13#10+ #13#10+
     'A quantidade de meses é de '+floattostr(advMeses) +#13#10+ #13#10+
     'O Total de Rendimento por mes é de '+ floattostr(advRedimentos)+#13#10+ #13#10+
-    'O Total que rendido do seu valor inicial é de '+ FloatToStr(advExtra) + #13#10+ #13#10+
+    'O Total rendido do seu valor inicial é de '+ FloatToStr(advExtra) + #13#10+ #13#10+
     'O seu Saldo agora é de '+ floattostr(extrato);
+    I := 0;
+    while I <= advMeses do
+    begin
+      Inc(I);
+      mmoExtrato.Lines.add('Testando o Loop: ' + IntToStr(I));
+    end;
+
+
 end;
 
 end.

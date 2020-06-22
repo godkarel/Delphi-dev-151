@@ -54,6 +54,19 @@
     Font.Style = [fsBold]
     ParentFont = False
   end
+  object labJuros: TLabel
+    Left = 170
+    Top = 130
+    Width = 71
+    Height = 16
+    Caption = 'Juros 8,62%'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clRed
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
   object edtAvançadoValorDepositado: TEdit
     Left = 144
     Top = 89
@@ -72,11 +85,12 @@
     TabOrder = 1
     Text = 'Valor Total'
   end
-  object tmmExtrato: TMemo
+  object mmoExtrato: TMemo
     Left = 488
     Top = 60
     Width = 329
     Height = 231
+    Alignment = taCenter
     Lines.Strings = (
       'Memo1')
     TabOrder = 2

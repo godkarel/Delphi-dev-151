@@ -13,7 +13,7 @@
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object Label1: TLabel
+  object labAdvDepositado: TLabel
     Left = 48
     Top = 56
     Width = 328
@@ -27,7 +27,7 @@
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label2: TLabel
+  object labAdvMeses: TLabel
     Left = 112
     Top = 160
     Width = 179
@@ -41,7 +41,7 @@
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label3: TLabel
+  object labAdvExtrato: TLabel
     Left = 616
     Top = 35
     Width = 61
@@ -54,7 +54,7 @@
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object labJuros: TLabel
+  object labAdvJuros: TLabel
     Left = 170
     Top = 130
     Width = 71
@@ -92,7 +92,7 @@
     Height = 231
     Alignment = taCenter
     Lines.Strings = (
-      'Memo1')
+      '')
     TabOrder = 2
   end
   object btnGerarExtrato: TButton

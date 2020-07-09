@@ -179,17 +179,17 @@ object Form1: TForm1
     Top = 208
     Width = 75
     Height = 25
-    Caption = 'btnConsultar'
+    Caption = 'Consultar'
     TabOrder = 7
     OnClick = btnConsultarClick
   end
-  object Button1: TButton
+  object btnAvancado: TButton
     Left = 400
     Top = 97
     Width = 81
     Height = 56
     Caption = 'Avan'#231'ado'
     TabOrder = 8
-    OnClick = Button1Click
+    OnClick = btnAvancadoClick
   end
 end

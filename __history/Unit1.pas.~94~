@@ -1,0 +1,328 @@
+﻿unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Unit2, Vcl.Menus;
+
+{
+  Tarefas:
+    1 - Mover variáveis globais para variaveis da classe TForm1 (chamadas de campos ou atributos). Tem que começar com F maiusculo
+    2 - EXTENDED tá maiusculo, usar da forma que foi declarado no delphi
+    3 - Verificar alinhamento de todas as linhas, verificando se aquele numero lá embaixo é ímpar
+    4 - "true" deveria ficar igual está declarado: "True"
+    5 - Sempre usar ";" no final das linhas quando o delphi permitir.
+    6 - Sempre que a classe invocar um método dela mesmo ou acessar uma propriedade dela mesmo, tem que ser usado "Self." antes do Nome da Função/Propriedade;
+         Completando, a regra seria:
+            Ao acessar algo do próprio objeto, e não começar com F maisuculo e nem com prefixo de componente de 3 letras minusculas, usar Self.
+
+    7 - Ao invocar uma função que "a gente criou", que não vem com o delphi, e ela não tem parâmetros, usar "(" e ")" para invocar.
+    8 - Linhas grandes, quebrar elas.
+    9 - Espaços entre os operadores "+"
+    10 - Prefixar os nomes dos form com "frm"
+}
+
+type
+  TfrmPrincipal = class(TForm)
+    edtInsertValue: TEdit;
+    labExplica: TLabel;
+    labJuros: TLabel;
+    cmbEscolhaMes: TComboBox;
+    labDepositado: TLabel;
+    edtDepositado: TEdit;
+    edtRendimentoMes: TEdit;
+    labRendimentodoMes: TLabel;
+    edtTotalEmMeses: TLabel;
+    edtRendimentoTotal: TEdit;
+    btnDepositar: TButton;
+    cmbDepositado: TComboBox;
+    btnConsultar: TButton;
+    btnAvancado: TButton;
+    procedure btnDepositarClick(Sender: TObject);
+    procedure cmbEscolhaMesChange(Sender: TObject);
+    procedure btnConsultarClick(Sender: TObject);
+    function SomarTudo: EXTENDED ;
+    function SomarDepositadoRendimento: EXTENDED;
+    procedure btnAvancadoClick(Sender: TObject);
+  private
+    FJaneiro: Integer;
+    FJaneiroRendeu: EXTENDED;
+    FJaneiroLucro: EXTENDED;
+    FFevereiro: Integer;
+    FFevereiroRendeu: EXTENDED;
+    FFevereiroLucro: EXTENDED;
+    FMarco: Integer;
+    FMarcoRendeu: EXTENDED;
+    FMarcoLucro: EXTENDED;
+    FAbril: Integer;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+  FAbrilRendeu: Extended;
+  FAbrilLucro: Extended;
+  FMaio: Integer;
+  FMaioRendeu: Extended;
+  FMaioLucro: Extended;
+  FJunho: Integer;
+  FJunhoRendeu: Extended;
+  FJunhoLucro: Extended;
+  FJulho: Integer;
+  FJulhoRendeu: Extended;
+  FJulhoLucro: Extended;
+  FAgosto: Integer;
+  FAgostoRendeu: Extended;
+  FAgostoLucro: Extended;
+  FSetembro: Integer;
+  FSetembroRendeu: Extended;
+  FSetembroLucro: Extended;
+  FOutubro: Integer;
+  FOutubroRendeu: Extended;
+  OutubroLucro: Extended;
+  FNovembro: Integer;
+  FNovembroRendeu: Extended;
+  NovembroLucro: Extended;
+  FDezembro: Integer;
+  FDezembroRendeu: Extended;
+  DezembroLucro: Extended;
+  TotalDepositado : Extended;
+  TotalRendeu : Extended;
+  FTotalDeTudo : Extended;
+  Rendimentos : Extended;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmPrincipal.btnDepositarClick(Sender: TObject);
+begin
+  if cmbEscolhaMes.Text = 'Escolha o mes' then
+  begin
+     ShowMessage('Escolha um mes para saber sobre os rendimentos');
+  end else
+  if cmbEscolhaMes.Text = 'Janeiro' then
+  begin
+     FJaneiro := StrToInt(edtInsertValue.Text);
+     edtInsertValue.Text := '';
+     ShowMessage('Valor Depositado');
+  end else
+  if cmbEscolhaMes.Text = 'Fevereiro' then   // text em minusculo aqui
+  begin
+     FFevereiro := StrToInt(edtInsertValue.Text);
+     edtInsertValue.Text := '';
+     ShowMessage('Valor Depositado');
+  end else
+  if cmbEscolhaMes.Text = 'Marco' then
+  begin
+     FMarco := StrToInt(edtInsertValue.Text);
+     edtInsertValue.Text := '';
+     ShowMessage('Valor Depositado');
+  end else
+  if cmbEscolhaMes.Text = 'Abril' then
+  begin
+     FAbril := StrToInt(edtInsertValue.Text);
+     edtInsertValue.Text := '';
+     ShowMessage('Valor Depositado');
+  end else
+  if cmbEscolhaMes.Text = 'Maio' then
+  begin
+     FMaio := StrToInt(edtInsertValue.Text);
+     edtInsertValue.Text := '';
+     ShowMessage('Valor Depositado');
+  end else
+  if cmbEscolhaMes.Text = 'Junho' then
+  begin
+     FJunho := StrToInt(edtInsertValue.Text);
+     edtInsertValue.Text := '';
+     ShowMessage('Valor Depositado');
+  end else
+  if cmbEscolhaMes.Text = 'Julho' then
+  begin
+     FJulho := StrToInt(edtInsertValue.Text);
+     edtInsertValue.Text := '';
+     ShowMessage('Valor Depositado');
+  end else
+  if cmbEscolhaMes.Text = 'Agosto' then
+  begin
+     FAgosto := StrToInt(edtInsertValue.Text);
+     edtInsertValue.Text := '';
+     ShowMessage('Valor Depositado');
+  end else
+  if cmbEscolhaMes.Text = 'Setembro' then
+  begin
+     FSetembro := StrToInt(edtInsertValue.Text);
+     edtInsertValue.Text := '';
+     ShowMessage('Valor Depositado');
+  end else
+  if cmbEscolhaMes.Text = 'Outubro' then
+  begin
+     FOutubro := StrToInt(edtInsertValue.Text);
+     edtInsertValue.Text := '';
+     ShowMessage('Valor Depositado');
+  end else
+  if cmbEscolhaMes.Text = 'Novembro' then
+  begin
+     FNovembro := StrToInt(edtInsertValue.Text);
+     edtInsertValue.Text := '';
+    ShowMessage('Valor Depositado');
+  end else
+  if cmbEscolhaMes.Text = 'Dezembro' then
+  begin
+     FDezembro := StrToInt(edtInsertValue.Text);
+     edtInsertValue.Text := '';
+     ShowMessage('Valor Depositado');
+  end;
+end;
+
+procedure TfrmPrincipal.btnAvancadoClick(Sender: TObject);
+begin
+ Form2.Show;
+end;
+
+procedure TfrmPrincipal.cmbEscolhaMesChange(Sender: TObject);
+begin
+  edtInsertValue.Visible := True
+end;
+
+procedure TfrmPrincipal.btnConsultarClick(Sender: TObject);
+begin
+  if cmbDepositado.Text = 'Janeiro' then
+  begin
+     Self.SomarTudo();
+     edtDepositado.Text := FloatToStr(FJaneiro);
+     edtRendimentoMes.Text := FloatToStr(FJaneiroRendeu);
+     edtRendimentoTotal.Text := FloatToStr(FTotalDeTudo);
+  end else
+  if cmbDepositado.Text = 'Fevereiro' then
+  begin
+     Self.SomarTudo;
+     edtDepositado.Text := FloatToStr(FFevereiro);
+     edtRendimentoMes.Text := FloatToStr(FFevereiroRendeu);
+     edtRendimentoTotal.Text := FloatToStr(FTotalDeTudo);
+  end else
+  if cmbDepositado.Text = 'Marco' then
+  begin
+     Self.SomarTudo;
+     edtDepositado.Text := FloatToStr(FMarco);
+     edtRendimentoMes.Text := FloatToStr(FMarcoRendeu);
+     edtRendimentoTotal.Text := FloatToStr(FTotalDeTudo);
+  end else
+  if cmbDepositado.text = 'Abril' then
+  begin
+     Self.SomarTudo;
+     edtDepositado.Text := FloatToStr(FAbril);
+     edtRendimentoMes.Text := FloatToStr(FAbrilRendeu);
+     edtRendimentoTotal.Text := FloatToStr(FTotalDeTudo);
+  end else
+  if cmbDepositado.Text = 'Maio' then
+  begin
+     Self.SomarTudo;
+     edtDepositado.Text := FloatToStr(FMaio);
+     edtRendimentoMes.Text := FloatToStr(FMaioRendeu);
+     edtRendimentoTotal.Text := FloatToStr(FTotalDeTudo);
+  end else
+  if cmbDepositado.Text = 'Junho' then
+  begin
+     Self.SomarTudo;
+     edtDepositado.Text := FloatToStr(FJunho);
+     edtRendimentoMes.Text := FloatToStr(FJunhoRendeu);
+     edtRendimentoTotal.Text := FloatToStr(FTotalDeTudo);
+  end else
+  if cmbDepositado.Text = 'Julho' then
+  begin
+     Self.SomarTudo;
+     edtDepositado.Text := FloatToStr(FJulho);
+     edtRendimentoMes.Text := FloatToStr(FJulhoRendeu);
+     edtRendimentoTotal.Text := FloatToStr(FTotalDeTudo);
+  end else
+  if cmbDepositado.Text = 'Agosto' then
+  begin
+     Self.SomarTudo;
+     edtDepositado.Text := FloatToStr(FAgosto);
+     edtRendimentoMes.Text := FloatToStr(FAgostoRendeu);
+     edtRendimentoTotal.Text := FloatToStr(FTotalDeTudo);
+  end else
+  if cmbDepositado.Text = 'Setembro' then
+  begin
+     Self.SomarTudo;
+     edtDepositado.Text := FloatToStr(FSetembro);
+     edtRendimentoMes.Text := FloatToStr(FSetembroRendeu);
+     edtRendimentoTotal.Text := FloatToStr(FTotalDeTudo);
+  end else
+  if cmbDepositado.Text = 'Outubro' then
+  begin
+     Self.SomarTudo;
+     edtDepositado.Text := FloatToStr(FOutubro);
+     edtRendimentoMes.Text := FloatToStr(FOutubroRendeu);
+     edtRendimentoTotal.Text := FloatToStr(FTotalDeTudo);
+  end else
+  if cmbDepositado.Text = 'Novembro' then
+  begin
+     Self.SomarTudo;
+     edtDepositado.Text := FloatToStr(FNovembro);
+     edtRendimentoMes.Text := FloatToStr(FNovembroRendeu);
+     edtRendimentoTotal.Text := FloatToStr(FTotalDeTudo);
+  end else
+  if cmbDepositado.Text = 'Dezembro' then
+  begin
+     Self.SomarTudo;
+     edtDepositado.Text := FloatToStr(FDezembro);
+     edtRendimentoMes.Text := FloatToStr(FDezembroRendeu);
+     edtRendimentoTotal.Text := FloatToStr(FTotalDeTudo);
+  end else
+
+end;
+
+function TfrmPrincipal.SomarDepositadoRendimento;
+begin
+   FJaneiroLucro := FJaneiro + FJaneiroRendeu;
+   FFevereiroLucro := FFevereiro + FFevereiroRendeu;
+   FMarcoLucro := FMarco + FMarcoRendeu;
+   FAbrilLucro := FAbril + FAbrilRendeu;
+   FMaioLucro := FMaio + FMaioRendeu;
+   FJunhoLucro := FJunho + FJunhoRendeu;
+   FJulhoLucro := FJulho + FJulhoRendeu;
+   FAgostoLucro := FAgosto + FAgostoRendeu;
+   FSetembroLucro := FSetembro + FSetembroRendeu;
+   OutubroLucro := FOutubro + FOutubroRendeu;
+   NovembroLucro := FNovembro + FNovembroRendeu;
+   DezembroLucro := FDezembro + FDezembroRendeu;
+
+end;
+
+
+function TfrmPrincipal.SomarTudo;
+begin
+    FJaneiroRendeu := FJaneiro * 0.0862;
+    FFevereiroRendeu := FFevereiro * 0.0862;
+    FMarcoRendeu := FMarco * 0.0862;
+    FAbrilRendeu := FAbril * 0.0862;
+    FMaioRendeu := FMaio * 0.0862;
+    FJunhoRendeu := FJunho * 0.0862;
+    FJulhoRendeu := FJulho * 0.0862;
+    FAgostoRendeu := FAgosto * 0.0862;
+    FSetembroRendeu := FSetembro * 0.0862;
+    FOutubroRendeu := FOutubro * 0.0862;
+    FNovembroRendeu := FNovembro * 0.0862;
+    FDezembroRendeu := FDezembro * 0.0862;
+
+    TotalRendeu := FJaneiroRendeu + FFevereiroRendeu + FMarcoRendeu + FAbrilRendeu + FMaioRendeu + FJunhoRendeu +
+                   FJulhoRendeu + FAgostoRendeu + FSetembroRendeu + FOutubroRendeu + FNovembroRendeu + FDezembroRendeu;
+
+    TotalDepositado := FJaneiro + FFevereiro + FMarco + FAbril + FMaio + FJunho + FJulho + FAgosto + FSetembro +
+                       FOutubro + FNovembro + FDezembro;
+
+    Rendimentos := FJaneiro + FJaneiroRendeu + FFevereiro + FFevereiroRendeu + FMarco +
+                   FMarcoRendeu + FAbril + FAbrilRendeu + FMaio + FMaioRendeu + FJunho + FJunhoRendeu + FJulho +
+                   FJulhoRendeu + FAgosto + FAgostoRendeu + FSetembro + FSetembroRendeu + FOutubro +
+                   FOutubroRendeu + FNovembro + FNovembroRendeu + FDezembro + FDezembroRendeu;
+
+    FTotalDeTudo := TotalDepositado + TotalRendeu;
+    Result := FTotalDeTudo
+end;
+
+end.
+

@@ -25,12 +25,12 @@ type
 
 var
   Form2: TForm2;
-  extrato: Extended;
-  advDepositado: Extended;
-  advMeses: Extended;
-  advRedimentos: Extended;
-  advTotalFinal: Extended;
-  advExtra: Extended;
+  Extrato: Extended;
+  AdvDepositado: Extended;
+  AdvMeses: Extended;
+  AdvRedimentos: Extended;
+  AdvTotalFinal: Extended;
+  AdvExtra: Extended;
   I : Integer;
 implementation
 
@@ -38,21 +38,20 @@ implementation
 
 procedure TForm2.btnGerarExtratoClick(Sender: TObject);
 begin
-    advDepositado := strtofloat(edtAvançadoValorDepositado.Text);
-    advRedimentos :=  strtofloat(edtMesesRendimento.Text) * 08.62;
-    advMeses := strtofloat(edtMesesRendimento.Text);
-    extrato := (StrToFloat(edtAvançadoValorDepositado.Text) * StrToFloat(edtMesesRendimento.Text)) + (advRedimentos * StrToFloat(edtMesesRendimento.Text)) ;
-    advExtra := advRedimentos * advMeses;
-    advTotalFinal := extrato * 8.62;
-    mmoExtrato.Text := #13#10+ 'Extrato '+#13#10+#13#10+#13#10+
-    'O Total depositado foi de ' +FloatToStr(advDepositado)+#13#10+ #13#10+
-    'A quantidade de meses é de '+floattostr(advMeses) +#13#10+ #13#10+
-    'O Total de Rendimento por mes é de '+ FloatToStr(advRedimentos)+#13#10+ #13#10+
-    'O Total rendido do seu valor inicial é de '+ FloatToStr(advExtra) + #13#10+ #13#10+
-    'O seu Saldo agora é de '+ FloatToStr(extrato);
+    AdvDepositado := StrToFloat(edtAvançadoValorDepositado.Text);
+    AdvRedimentos :=  StrToFloat(edtMesesRendimento.Text) * 08.62;
+    AdvMeses := StrToFloat(edtMesesRendimento.Text);
+    Extrato := (StrToFloat(edtAvançadoValorDepositado.Text) * StrToFloat(edtMesesRendimento.Text)) +
+               (AdvRedimentos * StrToFloat(edtMesesRendimento.Text)) ;
+    AdvExtra := AdvRedimentos * AdvMeses;
+    AdvTotalFinal := Extrato * 8.62;
 
-
-
+    mmoExtrato.Text := #13#10 + 'Extrato ' + #13#10 + #13#10 + #13#10 +
+      'O Total depositado foi de ' + FloatToStr(AdvDepositado) + #13#10 + #13#10 +
+      'A quantidade de meses é de ' + floattostr(AdvMeses) + #13#10 + #13#10 +
+      'O Total de Rendimento por mes é de ' + FloatToStr(AdvRedimentos) + #13#10 + #13#10 +
+      'O Total rendido do seu valor inicial é de ' + FloatToStr(AdvExtra) + #13#10 + #13#10 +
+      'O seu Saldo agora é de ' + FloatToStr(Extrato);
 end;
 
 end.

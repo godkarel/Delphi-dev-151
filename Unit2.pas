@@ -27,31 +27,41 @@ var
   Form2: TForm2;
   Extrato: Extended;
   AdvDepositado: Extended;
-  AdvMeses: Extended;
+  AdvMeses: Integer;
   AdvRedimentos: Extended;
   AdvTotalFinal: Extended;
   AdvExtra: Extended;
-  I : Integer;
+
 implementation
 
 {$R *.dfm}
 
 procedure TForm2.btnGerarExtratoClick(Sender: TObject);
+const
+  JurosMensal = 0.0862;  // 8.62% representado como decimal
 begin
+  try
     AdvDepositado := StrToFloat(edtAvançadoValorDepositado.Text);
-    AdvRedimentos :=  StrToFloat(edtMesesRendimento.Text) * 08.62;
-    AdvMeses := StrToFloat(edtMesesRendimento.Text);
-    Extrato := (StrToFloat(edtAvançadoValorDepositado.Text) * StrToFloat(edtMesesRendimento.Text)) +
-               (AdvRedimentos * StrToFloat(edtMesesRendimento.Text)) ;
-    AdvExtra := AdvRedimentos * AdvMeses;
-    AdvTotalFinal := Extrato * 8.62;
+    AdvMeses := StrToInt(edtMesesRendimento.Text);
 
-    mmoExtrato.Text := #13#10 + 'Extrato ' + #13#10 + #13#10 + #13#10 +
-      'O Total depositado foi de ' + FloatToStr(AdvDepositado) + #13#10 + #13#10 +
-      'A quantidade de meses é de ' + floattostr(AdvMeses) + #13#10 + #13#10 +
-      'O Total de Rendimento por mes é de ' + FloatToStr(AdvRedimentos) + #13#10 + #13#10 +
-      'O Total rendido do seu valor inicial é de ' + FloatToStr(AdvExtra) + #13#10 + #13#10 +
-      'O seu Saldo agora é de ' + FloatToStr(Extrato);
+    // Cálculo dos rendimentos totais considerando juros compostos
+    AdvTotalFinal := AdvDepositado * Power(1 + JurosMensal, AdvMeses);
+    AdvRedimentos := (AdvTotalFinal - AdvDepositado) / AdvMeses; // Rendimento médio mensal
+    AdvExtra := AdvTotalFinal - AdvDepositado;  // Rendimento total obtido
+
+    mmoExtrato.Clear;
+    mmoExtrato.Lines.Add('Extrato');
+    mmoExtrato.Lines.Add('---------------------');
+    mmoExtrato.Lines.Add('Total depositado: R$ ' + FloatToStrF(AdvDepositado, ffCurrency, 15, 2));
+    mmoExtrato.Lines.Add('Meses: ' + IntToStr(AdvMeses));
+    mmoExtrato.Lines.Add('Rendimento médio mensal: R$ ' + FloatToStrF(AdvRedimentos, ffCurrency, 15, 2));
+    mmoExtrato.Lines.Add('Rendimento total: R$ ' + FloatToStrF(AdvExtra, ffCurrency, 15, 2));
+    mmoExtrato.Lines.Add('Saldo final: R$ ' + FloatToStrF(AdvTotalFinal, ffCurrency, 15, 2));
+    
+  except
+    on E: Exception do
+      ShowMessage('Erro ao calcular: ' + E.Message);
+  end;
 end;
 
 end.
